@@ -142,7 +142,7 @@ function StackTraceTreeViewer(stackTrace) {
           [{isNaN(prettyGas) ? "0" : prettyGas.toString()}] {prettyValueStr} [
           {type}]{" "}
           <Tooltip title={to} placement="top-start">
-            <a href={`https://arbiscan.io//address/${to}`}>
+            <a href={`https://goerli.arbiscan.io//address/${to}`}>
               {prettyAddress || to}::{prettyInput || input}
             </a>
           </Tooltip>
@@ -550,7 +550,7 @@ function App() {
       const curSourceCodes = await Promise.all(
         unknownAddresses.slice(i, i + 5).map((x) =>
           fetch(
-            `https://api.arbiscan.io/api?module=contract&action=getsourcecode&address=${x}&apikey=SGGHGKSTVVZ3RME4FQFMDU3SG1EIIW9YMH`,
+            `https://api-goerli.arbiscan.io/api?module=contract&action=getsourcecode&address=${x}&apikey=SGGHGKSTVVZ3RME4FQFMDU3SG1EIIW9YMH`,
             {
               method: "GET",
             }
@@ -725,14 +725,14 @@ function App() {
                               {knownContractAddresses[address.toLowerCase()] ? (
                                 <Tooltip title={address} placement="top-start">
                                   <a
-                                    href={`https://arbiscan.io//address/${address}`}
+                                    href={`https://goerli.arbiscan.io//address/${address}`}
                                   >
                                     {knownContractAddresses[address]}
                                   </a>
                                 </Tooltip>
                               ) : (
                                 <a
-                                  href={`https://arbiscan.io//address/${address}`}
+                                  href={`https://goerli.arbiscan.io//address/${address}`}
                                 >
                                   {address}
                                 </a>
@@ -786,14 +786,14 @@ function App() {
                             {tokenNames[address.toLowerCase()] ? (
                               <Tooltip title={address} placement="top-start">
                                 <a
-                                  href={`https://arbiscan.io//address/${address}`}
+                                  href={`https://goerli.arbiscan.io//address/${address}`}
                                 >
                                   {tokenNames[address.toLowerCase()]}
                                 </a>
                               </Tooltip>
                             ) : (
                               <a
-                                href={`https://arbiscan.io//address/${address}`}
+                                href={`https://goerli.arbiscan.io//address/${address}`}
                               >
                                 {address}
                               </a>
