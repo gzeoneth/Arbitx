@@ -1,7 +1,7 @@
 import ERC20Abi from "./abi/ERC20.json";
 import { ethers } from "ethers";
 
-const RPC_URL = process.env.RPC_URL;
+const RPC_URL = process.env.REACT_APP_RPC_URL;
 const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 
 function sleep(ms) {
