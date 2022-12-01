@@ -32,7 +32,7 @@ function App() {
             }
             title={
               <Typography variant="h4" component="h4">
-                ArbiTx - Arbitrium Transaction Tracer
+                {process.env.REACT_APP_NETWORK_NAME} ArbiTx - Arbitrium Transaction Tracer
               </Typography>
             }
           />
