@@ -142,7 +142,7 @@ function StackTraceTreeViewer(stackTrace) {
           [{isNaN(prettyGas) ? "0" : prettyGas.toString()}] {prettyValueStr} [
           {type}]{" "}
           <Tooltip title={to} placement="top-start">
-            <a href={`https://goerli.arbiscan.io//address/${to}`}>
+            <a href={`${process.env.REACT_APP_ARBISCAN_URL}/address/${to}`}>
               {prettyAddress || to}::{prettyInput || input}
             </a>
           </Tooltip>
@@ -550,7 +550,7 @@ function App() {
       const curSourceCodes = await Promise.all(
         unknownAddresses.slice(i, i + 5).map((x) =>
           fetch(
-            `https://api-goerli.arbiscan.io/api?module=contract&action=getsourcecode&address=${x}&apikey=SGGHGKSTVVZ3RME4FQFMDU3SG1EIIW9YMH`,
+            `${process.env.REACT_APP_ARBISCAN_API_URL}/api?module=contract&action=getsourcecode&address=${x}&apikey=SGGHGKSTVVZ3RME4FQFMDU3SG1EIIW9YMH`,
             {
               method: "GET",
             }
@@ -672,7 +672,7 @@ function App() {
             }
             title={
               <Typography variant="h4" component="h4">
-                Transaction Info
+                {process.env.REACT_APP_NETWORK_NAME} Transaction Info
               </Typography>
             }
           />
@@ -725,14 +725,14 @@ function App() {
                               {knownContractAddresses[address.toLowerCase()] ? (
                                 <Tooltip title={address} placement="top-start">
                                   <a
-                                    href={`https://goerli.arbiscan.io//address/${address}`}
+                                    href={`${process.env.REACT_APP_ARBISCAN_URL}/address/${address}`}
                                   >
                                     {knownContractAddresses[address]}
                                   </a>
                                 </Tooltip>
                               ) : (
                                 <a
-                                  href={`https://goerli.arbiscan.io//address/${address}`}
+                                  href={`${process.env.REACT_APP_ARBISCAN_URL}/address/${address}`}
                                 >
                                   {address}
                                 </a>
@@ -786,14 +786,14 @@ function App() {
                             {tokenNames[address.toLowerCase()] ? (
                               <Tooltip title={address} placement="top-start">
                                 <a
-                                  href={`https://goerli.arbiscan.io//address/${address}`}
+                                  href={`${process.env.REACT_APP_ARBISCAN_URL}/address/${address}`}
                                 >
                                   {tokenNames[address.toLowerCase()]}
                                 </a>
                               </Tooltip>
                             ) : (
                               <a
-                                href={`https://goerli.arbiscan.io//address/${address}`}
+                                href={`${process.env.env.REACT_APP_ARBISCAN_URL}/address/${address}`}
                               >
                                 {address}
                               </a>
