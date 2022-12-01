@@ -7,5 +7,5 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify(req.body)
   })
-  return res.status(r.status).send(await r.json());
+  return res.status(r.status).send(await r.text());
 }
